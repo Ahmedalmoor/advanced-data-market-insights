@@ -37,7 +37,7 @@ WITH monthly_metrics AS (
         ROUND(AVG(salary_year_avg), 2) AS avg_salary
     FROM job_postings_fact
     WHERE EXTRACT(YEAR FROM job_posted_date) = 2023
-    GROUP BY EXTRACT(MONTH FROM job_posted_date), TO_CHAR(job_posted_date, 'Month')
+    GROUP BY EXTRACT(MONTH FROM job_posted_date), TO_CHAR(job_posted_date, 'Month') 
 )
 SELECT 
     month_name,
