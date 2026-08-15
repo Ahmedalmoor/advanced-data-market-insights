@@ -1,1 +1,1 @@
-CREATE DATABASE sql_first_project;
+CREATE DATABASE sql_first_project; 

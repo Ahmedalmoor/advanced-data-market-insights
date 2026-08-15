@@ -23,4 +23,4 @@ SELECT
 FROM 
     monthly_metrics
 ORDER BY 
-    month_num;
+    month_num; 

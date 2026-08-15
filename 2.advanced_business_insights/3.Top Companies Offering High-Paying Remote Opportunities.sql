@@ -27,4 +27,4 @@ HAVING
     AND COUNT(jpf.job_id) >= 3 
 ORDER BY 
     company_avg_salary DESC
-LIMIT 10;
+LIMIT 10; 

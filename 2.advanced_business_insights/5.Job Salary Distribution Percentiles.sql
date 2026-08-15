@@ -13,4 +13,4 @@ GROUP BY
 HAVING 
     COUNT(job_id) > 50
 ORDER BY 
-    median_salary_50 DESC;
+    median_salary_50 DESC; 

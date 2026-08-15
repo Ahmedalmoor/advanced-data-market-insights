@@ -26,4 +26,4 @@ GROUP BY
 HAVING 
     COUNT(job_id) >= 10
 ORDER BY 
-    skill_count ASC;
+    skill_count ASC; 

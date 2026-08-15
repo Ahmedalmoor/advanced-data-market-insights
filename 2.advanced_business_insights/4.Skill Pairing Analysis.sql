@@ -21,4 +21,4 @@ GROUP BY
     js2.skill_name
 ORDER BY 
     combination_frequency DESC
-LIMIT 15;
+LIMIT 15; 

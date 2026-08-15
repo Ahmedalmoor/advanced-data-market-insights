@@ -85,4 +85,4 @@ ALTER COLUMN contact_name TYPE TEXT;
 ALTER TABLE job_applied
 DROP COLUMN contact_name;
 
-DROP TABLE job_applied;
+DROP TABLE job_applied; 

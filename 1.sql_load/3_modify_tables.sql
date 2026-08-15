@@ -13,4 +13,4 @@ WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 
 COPY skills_job_dim
 FROM 'E:\OneDrive - Arab Open University - AOU\sql_project\csv_files\skills_job_dim.csv'
-WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8'); 
