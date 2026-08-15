@@ -46,9 +46,11 @@ SELECT
     avg_salary,
     ROUND(avg_salary - LAG(avg_salary) OVER (ORDER BY month_num), 2) AS salary_growth
 FROM monthly_metrics
-ORDER BY month_num;'''
+ORDER BY month_num;
+```
 
-![Job Growth Trend](assets/1.Month-over-Month%20Job%20Growth%20%26%20Salary%20Trend.png)
+
+![Job Growth Trend](assets/1.Month_over_Month_Job_Growth_and_Salary_Trend.png)
 
 
 
@@ -59,7 +61,8 @@ ORDER BY month_num;'''
 2. Skill Diversity vs. Average Salary Benchmark
 Analyzes whether knowing more skills correlates with higher average pay.
 
-'''WITH job_skills_count AS (
+```sql
+WITH job_skills_count AS (
     SELECT 
         jpf.job_id,
         jpf.salary_year_avg,
@@ -78,9 +81,10 @@ SELECT
 FROM job_skills_count
 GROUP BY skill_count
 HAVING COUNT(job_id) >= 10
-ORDER BY skill_count ASC;'''
+ORDER BY skill_count ASC;
+```
 
- ![Skill Diversity vs Average Salary Benchmark](assets/2.Skill%20Diversity%20vs.%20Average%20Salary%20Benchmark.png)
+ ![Skill Diversity vs Average Salary Benchmark](assets/2.Skill_Diversity_versus_Average_Salary_Benchmark.png)
 
 
 
@@ -93,6 +97,7 @@ ORDER BY skill_count ASC;'''
 Identifies top companies paying above the market average for remote positions.
 
 
+```sql 
 WITH market_avg AS (
     SELECT AVG(salary_year_avg) AS global_avg_salary
     FROM job_postings_fact
@@ -112,9 +117,10 @@ GROUP BY cd.company_id, cd.name, m.global_avg_salary
 HAVING AVG(jpf.salary_year_avg) > m.global_avg_salary AND COUNT(jpf.job_id) >= 3
 ORDER BY company_avg_salary DESC
 LIMIT 10;
+```
 
 
-![Top Companies Offering High-Paying Remote Opportunities](assets/3.Top%20Companies%20Offering%20High-Paying%20Remote%20Opportunities.png)
+![Top Companies Offering High-Paying Remote Opportunities](assets/3.Top_Companies_Offering_High_Paying_Remote_Opportunities.png)
 
 
 
@@ -125,6 +131,7 @@ LIMIT 10;
 Finds the most frequent combinations of skills demanded together in job postings.
 
 
+```sql
 WITH job_skills AS (
     SELECT 
         sjd.job_id,
@@ -141,9 +148,10 @@ INNER JOIN job_skills js2 ON js1.job_id = js2.job_id AND js1.skill_name < js2.sk
 GROUP BY js1.skill_name, js2.skill_name
 ORDER BY combination_frequency DESC
 LIMIT 15;
+```
 
 
-![Skill Pairing Analysis](assets/4.skills_pairing_analysis.png)
+![Skill Pairing Analysis](assets/4.Skills_Pairing_Analysis.png)
 
 
 
@@ -152,6 +160,7 @@ LIMIT 15;
 5. Job Salary Distribution Percentiles
 Measures salary percentiles (25th, 50th, 75th) across job roles.
 
+```sql
 SELECT 
     job_title_short,
     COUNT(job_id) AS total_postings,
@@ -163,23 +172,24 @@ WHERE salary_year_avg IS NOT NULL
 GROUP BY job_title_short
 HAVING COUNT(job_id) > 50
 ORDER BY median_salary_50 DESC;
+```
 
 
 
-![Job Salary Distribution](assets/5.job_salary_distribution_percentile.png)
+![Job Salary Distribution](assets/5.Job_Salary_Distribution_Percentile.png)
 
 
 
 What I Learned 🧠
 
-       Advanced Window Functions: Mastered LAG() and PERCENTILE_CONT() for temporal trends and distribution analysis.
+Advanced Window Functions: Mastered LAG() and PERCENTILE_CONT() for temporal trends and distribution analysis.
 
-       Complex Self-Joins: Learned to run self-joins on junction tables to analyze skill co-occurrence.
+Complex Self-Joins: Learned to run self-joins on junction tables to analyze skill co-occurrence.
 
-       Data Aggregation: Leveraged CTEs combined with HAVING filters to isolate high-value business insights.
+Data Aggregation: Leveraged CTEs combined with HAVING filters to isolate high-value business insights.
 
 Conclusions 📌
 
-       Skill Synergy: Skills like Python & SQL or AWS & Azure frequently appear together in high-paying roles.
+Skill Synergy: Skills like Python & SQL or AWS & Azure frequently appear together in high-paying roles.
 
-       Remote Value: Companies offering remote roles often provide salaries exceeding global market averages. 
+Remote Value: Companies offering remote roles often provide salaries exceeding global market averages. 
