@@ -48,8 +48,7 @@ SELECT
 FROM monthly_metrics
 ORDER BY month_num;
 
-
-![alt text](<assets/1.Month-over-Month Job Growth & Salary Trend.png>)
+![month-over-month job growth/salary trend](assets/1.job_salary_distribution_percentile.png)
 
 
 
@@ -81,8 +80,7 @@ HAVING COUNT(job_id) >= 10
 ORDER BY skill_count ASC;
 
 
-
-![alt text](<assets/2.Skill Diversity vs. Average Salary Benchmark.png>)
+![skill deiversity vs average salary benchmark](assets/2.job_salary_distribution_percentile.png)
 
 
 
@@ -114,7 +112,7 @@ LIMIT 10;
 
 
 
-![alt text](<assets/3.Top Companies Offering High-Paying Remote Opportunities.png>)
+![top companies and high payings](assets/3.job_salary_distribution_percentile.png)
 
 
 
@@ -142,8 +140,7 @@ GROUP BY js1.skill_name, js2.skill_name
 ORDER BY combination_frequency DESC
 LIMIT 15;
 
-
-![alt text](<assets/4.skills_pairing_anaysis.png>)
+![skill pairing analysis](assets/4.job_salary_distribution_percentile.png)
 
 
 
@@ -165,7 +162,7 @@ HAVING COUNT(job_id) > 50
 ORDER BY median_salary_50 DESC;
 
 
-![alt text](<assets/5.job_salary_distribution_percentile.png>)
+![Job Salary Distribution](assets/5.job_salary_distribution_percentile.png)
 
 
 
