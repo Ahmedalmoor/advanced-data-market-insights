@@ -46,10 +46,9 @@ SELECT
     avg_salary,
     ROUND(avg_salary - LAG(avg_salary) OVER (ORDER BY month_num), 2) AS salary_growth
 FROM monthly_metrics
-ORDER BY month_num;
+ORDER BY month_num;'''
 
-![Job Growth Trend](<assets/1.Month-over-Month Job Growth & Salary Trend.png>)
-
+!![Job Growth Trend](assets/1.Month-over-Month%20Job%20Growth%20%26%20Salary%20Trend.png)
 
 
 
