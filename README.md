@@ -48,7 +48,7 @@ SELECT
 FROM monthly_metrics
 ORDER BY month_num;
 
-![month-over-month job growth/salary trend](assets/1.job_salary_distribution_percentile.png)
+![month-over-month job growth/salary trend](assets/1.job_salary_distribution_percentile.png) 
 
 
 
