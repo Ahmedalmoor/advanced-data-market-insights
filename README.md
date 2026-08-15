@@ -46,9 +46,10 @@ SELECT
     avg_salary,
     ROUND(avg_salary - LAG(avg_salary) OVER (ORDER BY month_num), 2) AS salary_growth
 FROM monthly_metrics
-ORDER BY month_num;
+ORDER BY month_num;'''
 
-![month-over-month job growth/salary trend](assets\1.Month-over-Month Job Growth & Salary Trend.png) 
+![Job Growth Trend](assets/1.Month-over-Month%20Job%20Growth%20%26%20Salary%20Trend.png)
+
 
 
 
@@ -58,7 +59,7 @@ ORDER BY month_num;
 2. Skill Diversity vs. Average Salary Benchmark
 Analyzes whether knowing more skills correlates with higher average pay.
 
-WITH job_skills_count AS (
+'''WITH job_skills_count AS (
     SELECT 
         jpf.job_id,
         jpf.salary_year_avg,
@@ -77,10 +78,12 @@ SELECT
 FROM job_skills_count
 GROUP BY skill_count
 HAVING COUNT(job_id) >= 10
-ORDER BY skill_count ASC;
+ORDER BY skill_count ASC;'''
+
+ ![Skill Diversity vs Average Salary Benchmark](assets/2.Skill%20Diversity%20vs.%20Average%20Salary%20Benchmark.png)
 
 
-![skill deiversity vs average salary benchmark](assets\2.Skill Diversity vs. Average Salary Benchmark.png)
+
 
 
 
@@ -111,8 +114,7 @@ ORDER BY company_avg_salary DESC
 LIMIT 10;
 
 
-
-![top companies and high payings](assets\3.Top Companies Offering High-Paying Remote Opportunities.png)
+![Top Companies Offering High-Paying Remote Opportunities](assets/3.Top%20Companies%20Offering%20High-Paying%20Remote%20Opportunities.png)
 
 
 
@@ -140,7 +142,8 @@ GROUP BY js1.skill_name, js2.skill_name
 ORDER BY combination_frequency DESC
 LIMIT 15;
 
-![skill pairing analysis](assets\4.skills_pairing_analysis.png)
+
+![Skill Pairing Analysis](assets/4.skills_pairing_analysis.png)
 
 
 
@@ -162,7 +165,8 @@ HAVING COUNT(job_id) > 50
 ORDER BY median_salary_50 DESC;
 
 
-![Job Salary Distribution](assets\5.job_salary_distribution_percentile.png)
+
+![Job Salary Distribution](assets/5.job_salary_distribution_percentile.png)
 
 
 
