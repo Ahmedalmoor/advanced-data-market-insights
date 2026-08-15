@@ -59,7 +59,7 @@ ORDER BY month_num;'''
 2. Skill Diversity vs. Average Salary Benchmark
 Analyzes whether knowing more skills correlates with higher average pay.
 
-WITH job_skills_count AS (
+'''WITH job_skills_count AS (
     SELECT 
         jpf.job_id,
         jpf.salary_year_avg,
@@ -78,10 +78,12 @@ SELECT
 FROM job_skills_count
 GROUP BY skill_count
 HAVING COUNT(job_id) >= 10
-ORDER BY skill_count ASC;
+ORDER BY skill_count ASC;'''
+
+ ![Skill Diversity vs Average Salary Benchmark](assets/2.Skill%20Diversity%20vs.%20Average%20Salary%20Benchmark.png)
 
 
-![skill deiversity vs average salary benchmark](assets/2.job_salary_distribution_percentile.png)
+
 
 
 
@@ -112,8 +114,7 @@ ORDER BY company_avg_salary DESC
 LIMIT 10;
 
 
-
-![top companies and high payings](assets/3.job_salary_distribution_percentile.png)
+![Top Companies Offering High-Paying Remote Opportunities](assets/3.Top%20Companies%20Offering%20High-Paying%20Remote%20Opportunities.png)
 
 
 
@@ -141,7 +142,8 @@ GROUP BY js1.skill_name, js2.skill_name
 ORDER BY combination_frequency DESC
 LIMIT 15;
 
-![skill pairing analysis](assets/4.job_salary_distribution_percentile.png)
+
+![Skill Pairing Analysis](assets/4.skills_pairing_analysis.png)
 
 
 
@@ -161,6 +163,7 @@ WHERE salary_year_avg IS NOT NULL
 GROUP BY job_title_short
 HAVING COUNT(job_id) > 50
 ORDER BY median_salary_50 DESC;
+
 
 
 ![Job Salary Distribution](assets/5.job_salary_distribution_percentile.png)
