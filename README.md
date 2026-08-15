@@ -192,4 +192,6 @@ Conclusions 📌
 
 Skill Synergy: Skills like Python & SQL or AWS & Azure frequently appear together in high-paying roles.
 
-Remote Value: Companies offering remote roles often provide salaries exceeding global market averages. 
+Remote Value: Companies offering remote roles often provide salaries exceeding global market averages.
+
+
